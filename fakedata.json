@@ -1,0 +1,259 @@
+[{
+
+    "DataProvider": {
+
+      "WebsiteURL": "http://openchargemap.org",
+
+      "Comments": null,
+
+      "DataProviderStatusType": {
+
+        "IsProviderEnabled": true,
+
+        "ID": 1,
+
+        "Title": "Manual Data Entry"
+
+      },
+
+      "IsRestrictedEdit": false,
+
+      "IsOpenDataLicensed": true,
+
+      "IsApprovedImport": true,
+
+      "License": "Licensed under Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)",
+
+      "DateLastImported": null,
+
+      "ID": 1,
+
+      "Title": "Open Charge Map Contributors"
+
+    },
+
+    "OperatorInfo": {
+
+      "WebsiteURL": "http://www.mobie.pt",
+
+      "Comments": null,
+
+      "PhonePrimaryContact": null,
+
+      "PhoneSecondaryContact": null,
+
+      "IsPrivateIndividual": false,
+
+      "AddressInfo": null,
+
+      "BookingURL": null,
+
+      "ContactEmail": null,
+
+      "FaultReportEmail": null,
+
+      "IsRestrictedEdit": null,
+
+      "ID": 21,
+
+      "Title": "Mobie.pt"
+
+    },
+
+    "UsageType": {
+
+      "IsPayAtLocation": false,
+
+      "IsMembershipRequired": true,
+
+      "IsAccessKeyRequired": true,
+
+      "ID": 4,
+
+      "Title": "Public - Membership Required"
+
+    },
+
+    "StatusType": {
+
+      "IsOperational": true,
+
+      "IsUserSelectable": true,
+
+      "ID": 50,
+
+      "Title": "Operational"
+
+    },
+
+    "SubmissionStatus": {
+
+      "IsLive": true,
+
+      "ID": 200,
+
+      "Title": "Submission Published"
+
+    },
+
+    "UserComments": null,
+
+    "PercentageSimilarity": null,
+
+    "MediaItems": null,
+
+    "IsRecentlyVerified": true,
+
+    "DateLastVerified": "2022-01-27T22:20:00Z",
+
+    "ID": 191220,
+
+    "UUID": "ACD59259-7002-4CDA-BC0F-581FA6FAFED0",
+
+    "ParentChargePointID": null,
+
+    "DataProviderID": 1,
+
+    "DataProvidersReference": null,
+
+    "OperatorID": 21,
+
+    "OperatorsReference": null,
+
+    "UsageTypeID": 4,
+
+    "UsageCost": "Mobi.E compatible card or App",
+
+    "AddressInfo": {
+
+      "ID": 191579,
+
+      "Title": "OER-00111",
+
+      "AddressLine1": "98 Rua Cândido dos Reis",
+
+      "AddressLine2": null,
+
+      "Town": "Oeiras",
+
+      "StateOrProvince": "Lisboa",
+
+      "Postcode": "2780-211",
+
+      "CountryID": 180,
+
+      "Country": {
+
+        "ISOCode": "PT",
+
+        "ContinentCode": "EU",
+
+        "ID": 180,
+
+        "Title": "Portugal"
+
+      },
+
+      "Latitude": 38.69253347593903,
+
+      "Longitude": -9.311683811066928,
+
+      "ContactTelephone1": null,
+
+      "ContactTelephone2": null,
+
+      "ContactEmail": null,
+
+      "AccessComments": null,
+
+      "RelatedURL": null,
+
+      "Distance": null,
+
+      "DistanceUnit": 0
+
+    },
+
+    "Connections": [
+
+      {
+
+        "ID": 310333,
+
+        "ConnectionTypeID": 25,
+
+        "ConnectionType": {
+
+          "FormalName": "IEC 62196-2 Type 2",
+
+          "IsDiscontinued": false,
+
+          "IsObsolete": false,
+
+          "ID": 25,
+
+          "Title": "Type 2 (Socket Only)"
+
+        },
+
+        "Reference": null,
+
+        "StatusTypeID": 50,
+
+        "StatusType": {
+
+          "IsOperational": true,
+
+          "IsUserSelectable": true,
+
+          "ID": 50,
+
+          "Title": "Operational"
+
+        },
+
+        "LevelID": 2,
+
+        "Level": {
+
+          "Comments": "Over 2 kW, usually non-domestic socket type",
+
+          "IsFastChargeCapable": false,
+
+          "ID": 2,
+
+          "Title": "Level 2 : Medium (Over 2kW)"
+
+        },
+
+        "Amps": 32,
+
+        "Voltage": 400,
+
+        "PowerKW": 22.0,
+
+        "CurrentTypeID": 20,
+
+        "CurrentType": {
+
+          "Description": "Alternating Current - Three Phase",
+          "ID": 20,
+          "Title": "AC (Three-Phase)"
+        },
+        "Quantity": 1,
+        "Comments": null
+      }
+    ],
+    "NumberOfPoints": 1,
+    "GeneralComments": null,
+    "DatePlanned": null,
+    "DateLastConfirmed": null,
+    "StatusTypeID": 50,
+    "DateLastStatusUpdate": "2022-01-27T22:20:00Z",
+    "MetadataValues": null,
+    "DataQualityLevel": 1,
+    "DateCreated": "2022-01-27T22:20:00Z",
+    "SubmissionStatusTypeID": 200
+  }
+
+]
