@@ -2,7 +2,7 @@ import "./App.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const OPEN_CHARGE_API_URL = process.env.OPEN_CHARGE_API;
+const OPEN_CHARGE_URL = process.env.OPEN_CHARGE_URL;
 const key = process.env.key;
 
 // Params:
@@ -12,9 +12,7 @@ const key = process.env.key;
 const getPoiList = () => {
   axios
 
-    .get(
-      "https://api.openchargemap.io/v3/referencedata/?key=0932b917-00fe-4b0e-b21f-9183fedc8ce2"
-    )
+    .get(`https://api.openchargemap.io/v3/referencedata/?key=${key}`)
 
     //.get(`${OPEN_CHARGE_API_URL}?key=${key}`)
 
@@ -32,7 +30,7 @@ const getPoiList = () => {
 // &latitude=74.0060&longitude=40.712
 
 function App() {
-  //getPoiList();
+  getPoiList();
 
   // CREATE query string so that getPOIlist doesn't run with every refresh
 
@@ -41,7 +39,6 @@ function App() {
   return (
     <div className="App">
       <header>Loading..</header>
-
       <iframe
         src="https://map.openchargemap.io/?mode=embedded"
         allow="geolocation"
