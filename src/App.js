@@ -40,6 +40,9 @@ function App() {
       <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+        onViewportChange={(viewport) => {
+          setViewport(viewport);
+        }}
       >
         SHOW ME YO MAPPPPPP!
       </ReactMapGL>
