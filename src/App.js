@@ -37,7 +37,7 @@ function App() {
   return (
     <div className="App">
       <header>eevee App</header>
-      {/* <ReactMapGL
+      <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         mapStyle="mapbox://styles/mapbox/streets-v11"
@@ -46,7 +46,7 @@ function App() {
         }}
       >
         SHOW ME YO MAPPPPPP!
-      </ReactMapGL> */}
+      </ReactMapGL>
     </div>
   );
 }
