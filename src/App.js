@@ -11,17 +11,12 @@ const key = process.env.key;
 
 const getPoiList = () => {
   axios
-
-    .get(`https://api.openchargemap.io/v3/referencedata/?key=${key}`)
-
-    //.get(`${OPEN_CHARGE_API_URL}?key=${key}`)
-
+    // .get(`https://api.openchargemap.io/v3/referencedata/?key=${key}`)
+    .get(`https://api.openchargemap.io/v3/poi?key=${key}`)
     .then((response) => {
       console.log(response);
-
       return response.data;
     })
-
     .catch((error) => {
       console.log(error.response.data);
     });
