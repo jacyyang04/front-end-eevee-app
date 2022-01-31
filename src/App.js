@@ -12,7 +12,7 @@ const key = process.env.key;
 const getPoiList = () => {
   axios
     // .get(`https://api.openchargemap.io/v3/referencedata/?key=${key}`)
-    .get(`https://api.openchargemap.io/v3/poi?key=${key}`)
+    .get(`https://api.openchargemap.io/v3/poi?key=${key}&countrycode=US`)
     .then((response) => {
       console.log(response);
       return response.data;
