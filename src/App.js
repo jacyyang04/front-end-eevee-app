@@ -1,7 +1,7 @@
 import "./App.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import ReactMapGL, { Marker } from "react-map-gl";
+import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import redpin from "./images/redpin.png";
 
 // const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
@@ -20,6 +20,8 @@ function App() {
     width: "90vw",
     height: "90vh",
   });
+
+  const [selectedStation, setSelectedStation] = useState(null);
 
   const getPoiList = () => {
     axios
@@ -60,11 +62,25 @@ function App() {
         SHOW ME YO MAPPPPPP!
         {poiData.map((poi) => (
           <Marker key={poi.id} latitude={poi.lat} longitude={poi.long}>
-            <button className="marker-btn">
+            <button
+              className="marker-btn"
+              onClick={(e) => {
+                e.preventDefault();
+                setSelectedStation(poi);
+              }}
+            >
               <img className="img" src={redpin} alt="charger station" />
             </button>
           </Marker>
         ))}
+        {selectedStation ? (
+          <Popup
+            latitude={selectedStation.lat}
+            longitude={selectedStation.long}
+          >
+            <div>station</div>
+          </Popup>
+        ) : null}
       </ReactMapGL>
     </div>
   );
