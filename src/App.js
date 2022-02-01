@@ -63,8 +63,6 @@ function App() {
             <button className="marker-btn">
               <img className="img" src={redpin} alt="charger station" />
             </button>
-            {/* <img src="redpin" /> */}
-            {/* <div>X</div> */}
           </Marker>
         ))}
       </ReactMapGL>
