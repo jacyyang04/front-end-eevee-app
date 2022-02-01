@@ -2,7 +2,7 @@ import "./App.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
-// import * as pin from "./images";
+import redpin from "./images/redpin.png";
 
 // const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 
@@ -60,8 +60,11 @@ function App() {
         SHOW ME YO MAPPPPPP!
         {poiData.map((poi) => (
           <Marker key={poi.id} latitude={poi.lat} longitude={poi.long}>
+            <button className="marker-btn">
+              <img className="img" src={redpin} alt="charger station" />
+            </button>
             {/* <img src="redpin" /> */}
-            <div>X</div>
+            {/* <div>X</div> */}
           </Marker>
         ))}
       </ReactMapGL>
