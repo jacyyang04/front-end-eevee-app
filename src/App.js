@@ -33,17 +33,27 @@ function App() {
       .get(
         `https://api.openchargemap.io/v3/poi?key=${process.env.REACT_APP_OPENCHARGE}&distanceunit=15&maxresults=100&latitude=47.6062&longitude=-122.3321`
       )
+      // .get(
+      //   `https://api.openchargemap.io/v3/referencedata?key=${process.env.REACT_APP_OPENCHARGE}&countryid=2`
+      // )
       // go through the api and grab the coordinates for each charging ports
+      // .then((response) => {
+      //   console.log(response.data);
+      //   const newData = response.data.map((station) => {
+      //     return {
+      //       id: station.AddressInfo.ID,
+      //       lat: station.AddressInfo.Latitude,
+      //       long: station.AddressInfo.Longitude,
+      //       address: station.AddressInfo.AddressLine1,
+      //       phone: station.AddressInfo.ContactTelephone1,
+      //       title: station.AddressInfo.Title
+      //       usage: station.UsageType.
+      //     };
+      //   });
+      //   setStationData(newData);
+      // })
       .then((response) => {
-        const newData = response.data.map((station) => {
-          // console.log(poi.AddressInfo);
-          return {
-            id: station.AddressInfo.ID,
-            lat: station.AddressInfo.Latitude,
-            long: station.AddressInfo.Longitude,
-          };
-        });
-        setStationData(newData);
+        console.log(response.data);
       })
       .catch((error) => {
         console.log(error.response.data);
@@ -56,7 +66,7 @@ function App() {
   return (
     <div className="App">
       <header>eevee App</header>
-      <ReactMapGL
+      {/* <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         mapStyle="mapbox://styles/mapbox/streets-v11"
@@ -90,7 +100,7 @@ function App() {
             <div>station</div>
           </Popup>
         ) : null}
-      </ReactMapGL>
+      </ReactMapGL> */}
     </div>
   );
 }
