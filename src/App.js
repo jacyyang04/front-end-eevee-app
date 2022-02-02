@@ -12,7 +12,9 @@ import redpin from "./images/redpin.png";
 // });
 
 function App() {
-  const [poiData, setPoiData] = useState([]);
+  // holds our station data
+  const [stationData, setStationData] = useState([]);
+  //sets the default map location to Seattle
   const [viewport, setViewport] = useState({
     latitude: 47.6062,
     longitude: -122.3321,
@@ -21,32 +23,35 @@ function App() {
     height: "90vh",
   });
 
+  // holds selected station
   const [selectedStation, setSelectedStation] = useState(null);
 
-  const getPoiList = () => {
+  // beginning of CRUDE routes
+  // get station request
+  const getStationList = () => {
     axios
       .get(
         `https://api.openchargemap.io/v3/poi?key=${process.env.REACT_APP_OPENCHARGE}&distanceunit=15&maxresults=100&latitude=47.6062&longitude=-122.3321`
       )
       // go through the api and grab the coordinates for each charging ports
       .then((response) => {
-        const newData = response.data.map((poi) => {
+        const newData = response.data.map((station) => {
           // console.log(poi.AddressInfo);
           return {
-            id: poi.AddressInfo.ID,
-            lat: poi.AddressInfo.Latitude,
-            long: poi.AddressInfo.Longitude,
+            id: station.AddressInfo.ID,
+            lat: station.AddressInfo.Latitude,
+            long: station.AddressInfo.Longitude,
           };
         });
-        setPoiData(newData);
+        setStationData(newData);
       })
       .catch((error) => {
         console.log(error.response.data);
       });
   };
 
-  // console.log(poiData);
-  useEffect(getPoiList, []);
+  // console.log(stationData);
+  useEffect(getStationList, []);
 
   return (
     <div className="App">
@@ -55,18 +60,22 @@ function App() {
         {...viewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         mapStyle="mapbox://styles/mapbox/streets-v11"
-        onViewportChange={(viewport) => {
-          setViewport(viewport);
+        onViewportChange={(newViewport) => {
+          setViewport(newViewport);
         }}
       >
         SHOW ME YO MAPPPPPP!
-        {poiData.map((poi) => (
-          <Marker key={poi.id} latitude={poi.lat} longitude={poi.long}>
+        {stationData.map((station) => (
+          <Marker
+            key={station.id}
+            latitude={station.lat}
+            longitude={station.long}
+          >
             <button
               className="marker-btn"
               onClick={(e) => {
                 e.preventDefault();
-                setSelectedStation(poi);
+                setSelectedStation(station);
               }}
             >
               <img className="img" src={redpin} alt="charger station" />
