@@ -1,7 +1,7 @@
 import "./App.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import ReactMapGL, { Marker, Popup } from "react-map-gl";
+import ReactMapGL, { Marker, Popup, GeolocateControl } from "react-map-gl";
 import redpin from "./images/redpin.png";
 
 // const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
@@ -35,10 +35,16 @@ function App() {
     };
     window.addEventListener("keydown", listener);
 
-    return() => {
+    return () => {
       window.removeEventListener("keydown", listener);
-    }
+    };
   }, []);
+
+  // add geolocator formatting
+  const geolocateControlStyle = {
+    right: 10,
+    top: 10,
+  };
 
   // beginning of CRUDE routes
   // get station request
@@ -67,9 +73,6 @@ function App() {
         });
         setStationData(newData);
       })
-      // .then((response) => {
-      //   console.log(response.data);
-      // })
       .catch((error) => {
         console.log(error.response.data);
       });
@@ -89,6 +92,12 @@ function App() {
           setViewport(newViewport);
         }}
       >
+        <GeolocateControl
+          style={geolocateControlStyle}
+          positionOptions={{ enableHighAccuracy: true }}
+          trackUserLocation={true}
+          auto
+        />
         SHOW ME YO MAPPPPPP!
         {stationData.map((station) => (
           <Marker
@@ -112,7 +121,7 @@ function App() {
             latitude={selectedStation.lat}
             longitude={selectedStation.long}
             onClose={() => {
-              setSelectedStation(null)
+              setSelectedStation(null);
             }}
           >
             <div>
