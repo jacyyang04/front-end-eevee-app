@@ -26,6 +26,20 @@ function App() {
   // holds selected station
   const [selectedStation, setSelectedStation] = useState(null);
 
+  //on click esp closes pop
+  useEffect(() => {
+    const listener = (e) => {
+      if (e.key === "Escape") {
+        setSelectedStation(null);
+      }
+    };
+    window.addEventListener("keydown", listener);
+
+    return() => {
+      window.removeEventListener("keydown", listener);
+    }
+  }, []);
+
   // beginning of CRUDE routes
   // get station request
   const getStationList = () => {
@@ -97,6 +111,9 @@ function App() {
           <Popup
             latitude={selectedStation.lat}
             longitude={selectedStation.long}
+            onClose={() => {
+              setSelectedStation(null)
+            }}
           >
             <div>
               <h2> {selectedStation.title}</h2>
