@@ -37,24 +37,25 @@ function App() {
       //   `https://api.openchargemap.io/v3/referencedata?key=${process.env.REACT_APP_OPENCHARGE}&countryid=2`
       // )
       // go through the api and grab the coordinates for each charging ports
-      // .then((response) => {
-      //   console.log(response.data);
-      //   const newData = response.data.map((station) => {
-      //     return {
-      //       id: station.AddressInfo.ID,
-      //       lat: station.AddressInfo.Latitude,
-      //       long: station.AddressInfo.Longitude,
-      //       address: station.AddressInfo.AddressLine1,
-      //       phone: station.AddressInfo.ContactTelephone1,
-      //       title: station.AddressInfo.Title
-      //       usage: station.UsageType.
-      //     };
-      //   });
-      //   setStationData(newData);
-      // })
       .then((response) => {
         console.log(response.data);
+        const newData = response.data.map((station) => {
+          return {
+            id: station.AddressInfo.ID,
+            lat: station.AddressInfo.Latitude,
+            long: station.AddressInfo.Longitude,
+            address: station.AddressInfo.AddressLine1,
+            phone: station.AddressInfo.ContactTelephone1,
+            title: station.AddressInfo.Title,
+            connectionType: station.Connections[0].ConnectionType.Title,
+            conntectionTypeID: station.Connections.ConnectionTypeID,
+          };
+        });
+        setStationData(newData);
       })
+      // .then((response) => {
+      //   console.log(response.data);
+      // })
       .catch((error) => {
         console.log(error.response.data);
       });
@@ -66,7 +67,7 @@ function App() {
   return (
     <div className="App">
       <header>eevee App</header>
-      {/* <ReactMapGL
+      <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         mapStyle="mapbox://styles/mapbox/streets-v11"
@@ -97,10 +98,15 @@ function App() {
             latitude={selectedStation.lat}
             longitude={selectedStation.long}
           >
-            <div>station</div>
+            <div>
+              <h2> {selectedStation.title}</h2>
+              <p>{selectedStation.connectionType}</p>
+              <p>{selectedStation.address}</p>
+              <p>{selectedStation.phone}</p>
+            </div>
           </Popup>
         ) : null}
-      </ReactMapGL> */}
+      </ReactMapGL>
     </div>
   );
 }
