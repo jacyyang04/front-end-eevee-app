@@ -23,8 +23,9 @@ function App() {
     longitude: -122.3321,
     zoom: 12,
     width: "100vw",
-    height: "90vh",
+    height: "100vh",
   });
+
 
   // holds selected station
   const [selectedStation, setSelectedStation] = useState(null);
@@ -90,6 +91,8 @@ function App() {
       </header>
       <nav className="App-nav">
         <p>SHOW ME MY STATIONS!</p>
+        <input className="searchInput" placeholder="Search Location..." type="text" id="searchbar" name="searchbar" />
+        
       </nav>
       <div className="App-map">
         <ReactMapGL

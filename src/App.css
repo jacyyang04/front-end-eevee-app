@@ -64,3 +64,14 @@ label{
   border-bottom: 1px solid rgb(88, 64, 224);
   margin: 3px;
 }
+
+.searchInput{
+  color:rgb(89, 238, 39);
+  font-size: 50px;
+  width: 1600px;
+  height: 100px;
+  padding:10px;
+  padding-left: 15px;
+  border-radius: 25px;
+  margin-bottom: 15px;
+}
