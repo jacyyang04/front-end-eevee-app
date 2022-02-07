@@ -108,7 +108,7 @@ function App() {
               trackUserLocation={true}
               auto
             />
-            SHOW ME YO MAPPPPPP!
+            SHOW ME MY STATIONS!
             {stationData.map((station) => (
               <Marker
                 key={station.id}
