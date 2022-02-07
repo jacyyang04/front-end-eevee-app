@@ -1,6 +1,4 @@
-
-  
-  // Only rerender markers if props.data has changed
+// Only rerender markers if props.data has changed
 
 // function Markers() {
 //   const markers = React.useMemo(() => data.map(
@@ -10,7 +8,6 @@
 //     </Marker>
 //   )
 // ), [props.data]);
- 
 
 //   return (
 //   //stationData.map((station) => (

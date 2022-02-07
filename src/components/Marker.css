@@ -1,0 +1,20 @@
+.card{
+    width: 250px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+    font-size: x-large;
+}
+
+label{
+    color: rgb(88, 64, 224);
+    font-size: x-large;
+    border-bottom: 1px solid rgb(88, 64, 224);
+    margin: 3px;
+}

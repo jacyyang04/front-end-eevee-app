@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import ReactMapGL, { Marker, Popup, GeolocateControl } from "react-map-gl";
 import redpin from "./images/redpin.png";
 //import PushPinIcon from '@mui/icons-material/PushPin';
+
 // const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 
 // const map = new mapboxgl.Map({
@@ -13,7 +14,7 @@ import redpin from "./images/redpin.png";
 
 function App() {
   // holds our station data
-  //get current location 
+  //get current location
 
   const [stationData, setStationData] = useState([]);
   //sets the default map location to Seattle
@@ -85,73 +86,83 @@ function App() {
 
   return (
     <div className="App">
-      <header>eevee App</header>
-      <ReactMapGL
-        {...viewport}
-        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-        mapStyle="mapbox://styles/munizr/ckz947dv7000v15qnfa41z08z"
-        onViewportChange={(newViewport) => {
-          setViewport(newViewport);
-        }}
-      >
-        <GeolocateControl
-          style={geolocateControlStyle}
-          positionOptions={{ enableHighAccuracy: true }}
-          trackUserLocation={true}
-          auto
-        />
-        SHOW ME YO MAPPPPPP!
-        {stationData.map((station) => (
-          <Marker
-            key={station.id}
-            latitude={station.lat}
-            longitude={station.long}
-          >
-            <button
-              className="marker-btn"
-              onClick={(e) => {
-                e.preventDefault();
-                setSelectedStation(station);
-              }}
-            >
-              <img className="img" src={redpin} alt="charger station" />
-            </button>
-          </Marker>
-        ))}
-        {selectedStation ? (
-          <Popup
-            latitude={selectedStation.lat}
-            longitude={selectedStation.long}
-            onClose={() => {
-              setSelectedStation(null);
+      <header className="App-header">
+        <h1>eevee app</h1>
+      </header>
+      <nav className="App-nav">
+        <p>Add our search button</p>
+      </nav>
+      <body className="App-map">
+        <div>
+          <ReactMapGL
+            {...viewport}
+            mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+            mapStyle="mapbox://styles/munizr/ckz947dv7000v15qnfa41z08z"
+            onViewportChange={(newViewport) => {
+              setViewport(newViewport);
             }}
           >
-            <div classname= "card">
-              <label> Charging Station</label>
-              <h4 className="description"> {selectedStation.title}</h4>
-              <label> Connector</label>
-              <p className="description">{selectedStation.connectionType}</p>
-              <label> Address</label>
-              <p className="description">{selectedStation.address}</p>
-              <label> Phone</label>
-              <p className="description">{selectedStation.phone}</p>
-            </div>
-          </Popup>
-        ) : null}
-      </ReactMapGL>
+            <GeolocateControl
+              style={geolocateControlStyle}
+              positionOptions={{ enableHighAccuracy: true }}
+              trackUserLocation={true}
+              auto
+            />
+            SHOW ME YO MAPPPPPP!
+            {stationData.map((station) => (
+              <Marker
+                key={station.id}
+                latitude={station.lat}
+                longitude={station.long}
+              >
+                <button
+                  className="marker-btn"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setSelectedStation(station);
+                  }}
+                >
+                  <img className="img" src={redpin} alt="charger station" />
+                </button>
+              </Marker>
+            ))}
+            {selectedStation ? (
+              <Popup
+                latitude={selectedStation.lat}
+                longitude={selectedStation.long}
+                onClose={() => {
+                  setSelectedStation(null);
+                }}
+              >
+                <div classname="card">
+                  <label> Charging Station</label>
+                  <h4 className="description"> {selectedStation.title}</h4>
+                  <label> Connector</label>
+                  <p className="description">
+                    {selectedStation.connectionType}
+                  </p>
+                  <label> Address</label>
+                  <p className="description">{selectedStation.address}</p>
+                  <label> Phone</label>
+                  <p className="description">{selectedStation.phone}</p>
+                </div>
+              </Popup>
+            ) : null}
+          </ReactMapGL>
+        </div>
+      </body>
     </div>
   );
 }
 
 export default App;
 
-navigator.geolocation.getCurrentPosition(successLocation,
-errorLocation, {
-  enableHighAccuracy: true
-})
+navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
+  enableHighAccuracy: true,
+});
 
 function successLocation(position) {
-  console.log(position)
+  console.log(position);
 }
 
 function errorLocation() {}
