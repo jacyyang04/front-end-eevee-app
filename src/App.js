@@ -61,7 +61,6 @@ function App() {
       // )
       // go through the api and grab the coordinates for each charging ports
       .then((response) => {
-        console.log(response.data);
         const newData = response.data.map((station) => {
           return {
             id: station.AddressInfo.ID,
@@ -90,9 +89,9 @@ function App() {
         <h1>eevee app</h1>
       </header>
       <nav className="App-nav">
-        <p>Add our search button</p>
+        <p>SHOW ME MY STATIONS!</p>
       </nav>
-      <body className="App-map">
+      <div className="App-map">
         <div>
           <ReactMapGL
             {...viewport}
@@ -108,7 +107,6 @@ function App() {
               trackUserLocation={true}
               auto
             />
-            SHOW ME MY STATIONS!
             {stationData.map((station) => (
               <Marker
                 key={station.id}
@@ -150,7 +148,10 @@ function App() {
             ) : null}
           </ReactMapGL>
         </div>
-      </body>
+      </div>
+      <div className="App-footer">
+        <p>Add Linkedin</p>
+      </div>
     </div>
   );
 }

@@ -4,12 +4,13 @@
 
 .App {
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 25px 3fr 25px;
   grid-template-rows: auto;
   grid-template-areas:
     ". header ."
     ". nav ."
-    ". map .";
+    ". map ."
+    ". footer .";
 }
 
 .App-header {
@@ -33,6 +34,10 @@
 
 .App-map {
   grid-area: map;
+}
+
+.App-footer {
+  grid-area: footer;
 }
 
 .card{
