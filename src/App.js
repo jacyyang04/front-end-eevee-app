@@ -22,7 +22,7 @@ function App() {
     latitude: 47.6062,
     longitude: -122.3321,
     zoom: 12,
-    width: "90vw",
+    width: "100vw",
     height: "90vh",
   });
 
@@ -92,62 +92,58 @@ function App() {
         <p>SHOW ME MY STATIONS!</p>
       </nav>
       <div className="App-map">
-        <div>
-          <ReactMapGL
-            {...viewport}
-            mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-            mapStyle="mapbox://styles/munizr/ckz947dv7000v15qnfa41z08z"
-            onViewportChange={(newViewport) => {
-              setViewport(newViewport);
-            }}
-          >
-            <GeolocateControl
-              style={geolocateControlStyle}
-              positionOptions={{ enableHighAccuracy: true }}
-              trackUserLocation={true}
-              auto
-            />
-            {stationData.map((station) => (
-              <Marker
-                key={station.id}
-                latitude={station.lat}
-                longitude={station.long}
-              >
-                <button
-                  className="marker-btn"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setSelectedStation(station);
-                  }}
-                >
-                  <img className="img" src={redpin} alt="charger station" />
-                </button>
-              </Marker>
-            ))}
-            {selectedStation ? (
-              <Popup
-                latitude={selectedStation.lat}
-                longitude={selectedStation.long}
-                onClose={() => {
-                  setSelectedStation(null);
+        <ReactMapGL
+          {...viewport}
+          mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+          mapStyle="mapbox://styles/munizr/ckz947dv7000v15qnfa41z08z"
+          onViewportChange={(newViewport) => {
+            setViewport(newViewport);
+          }}
+        >
+          <GeolocateControl
+            style={geolocateControlStyle}
+            positionOptions={{ enableHighAccuracy: true }}
+            trackUserLocation={true}
+            auto
+          />
+          {stationData.map((station) => (
+            <Marker
+              key={station.id}
+              latitude={station.lat}
+              longitude={station.long}
+            >
+              <button
+                className="marker-btn"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setSelectedStation(station);
                 }}
               >
-                <div classname="card">
-                  <label> Charging Station</label>
-                  <h4 className="description"> {selectedStation.title}</h4>
-                  <label> Connector</label>
-                  <p className="description">
-                    {selectedStation.connectionType}
-                  </p>
-                  <label> Address</label>
-                  <p className="description">{selectedStation.address}</p>
-                  <label> Phone</label>
-                  <p className="description">{selectedStation.phone}</p>
-                </div>
-              </Popup>
-            ) : null}
-          </ReactMapGL>
-        </div>
+                <img className="img" src={redpin} alt="charger station" />
+              </button>
+            </Marker>
+          ))}
+          {selectedStation ? (
+            <Popup
+              latitude={selectedStation.lat}
+              longitude={selectedStation.long}
+              onClose={() => {
+                setSelectedStation(null);
+              }}
+            >
+              <div classname="card">
+                <label> Charging Station</label>
+                <h4 className="description"> {selectedStation.title}</h4>
+                <label> Connector</label>
+                <p className="description">{selectedStation.connectionType}</p>
+                <label> Address</label>
+                <p className="description">{selectedStation.address}</p>
+                <label> Phone</label>
+                <p className="description">{selectedStation.phone}</p>
+              </div>
+            </Popup>
+          ) : null}
+        </ReactMapGL>
       </div>
       <div className="App-footer">
         <p>Add Linkedin</p>

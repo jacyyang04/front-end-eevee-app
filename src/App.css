@@ -40,6 +40,10 @@
   grid-area: footer;
 }
 
+.map-container {
+  display: flex;
+}
+
 .card{
   width: 250px;
   height: 150px;
