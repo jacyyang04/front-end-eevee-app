@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ReactMapGL, { Marker, Popup, GeolocateControl } from "react-map-gl";
 import redpin from "./images/redpin.png";
-
+//import PushPinIcon from '@mui/icons-material/PushPin';
 // const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 
 // const map = new mapboxgl.Map({
@@ -13,6 +13,8 @@ import redpin from "./images/redpin.png";
 
 function App() {
   // holds our station data
+  //get current location 
+
   const [stationData, setStationData] = useState([]);
   //sets the default map location to Seattle
   const [viewport, setViewport] = useState({
@@ -87,7 +89,7 @@ function App() {
       <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-        mapStyle="mapbox://styles/mapbox/streets-v11"
+        mapStyle="mapbox://styles/munizr/ckz947dv7000v15qnfa41z08z"
         onViewportChange={(newViewport) => {
           setViewport(newViewport);
         }}
@@ -124,11 +126,15 @@ function App() {
               setSelectedStation(null);
             }}
           >
-            <div>
-              <h2> {selectedStation.title}</h2>
-              <p>{selectedStation.connectionType}</p>
-              <p>{selectedStation.address}</p>
-              <p>{selectedStation.phone}</p>
+            <div classname= "card">
+              <label> Charging Station</label>
+              <h4 className="description"> {selectedStation.title}</h4>
+              <label> Connector</label>
+              <p className="description">{selectedStation.connectionType}</p>
+              <label> Address</label>
+              <p className="description">{selectedStation.address}</p>
+              <label> Phone</label>
+              <p className="description">{selectedStation.phone}</p>
             </div>
           </Popup>
         ) : null}
@@ -138,3 +144,14 @@ function App() {
 }
 
 export default App;
+
+navigator.geolocation.getCurrentPosition(successLocation,
+errorLocation, {
+  enableHighAccuracy: true
+})
+
+function successLocation(position) {
+  console.log(position)
+}
+
+function errorLocation() {}
