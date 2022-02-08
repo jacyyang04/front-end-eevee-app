@@ -66,7 +66,18 @@ label{
   margin: 3px;
 }
 
-.searchInput{
+.searchInputLat{
+  color:rgb(39, 152, 238);
+  font-size: 50px;
+  width: 1200px;
+  height: 65px;
+  padding:10px;
+  padding-left: 15px;
+  border-radius: 25px;
+  margin-bottom: 15px;
+}
+
+.searchInputLong{
   color:rgb(39, 152, 238);
   font-size: 50px;
   width: 1200px;

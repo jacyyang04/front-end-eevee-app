@@ -51,10 +51,10 @@ function App() {
 
   // beginning of CRUDE routes
   // get station request
-  const getStationList = ({ viewport }) => {
+  const getStationList = ({ searchBoxLat, searchBoxLong }) => {
     axios
       .get(
-        `https://api.openchargemap.io/v3/poi?key=${process.env.REACT_APP_OPENCHARGE}&distanceunit=15&maxresults=100&latitude=${viewport.latitude}&longitude=${viewport.longitude}`
+        `https://api.openchargemap.io/v3/poi?key=${process.env.REACT_APP_OPENCHARGE}&distanceunit=15&maxresults=100&latitude=${searchBoxLat.value}&longitude=${searchBoxLong.value}`
       )
       // .get(
       //   `https://api.openchargemap.io/v3/poi?key=${process.env.REACT_APP_OPENCHARGE}&distanceunit=15&maxresults=100&latitude=47.6062&longitude=-122.3321`
@@ -84,7 +84,7 @@ function App() {
   };
 
   // console.log(stationData);
-  useEffect(() => getStationList({ viewport }), []);
+  // useEffect(() => getStationList({searchInputLat, searchInputLong}), []);
 
   return (
     <div className="App">
@@ -94,9 +94,15 @@ function App() {
       <nav className="App-nav">
         <p>SHOW ME MY STATIONS!</p>
         <input
-          id="searchInput"
-          className="searchInput"
-          placeholder="Search Location..."
+          id="searchInputLat"
+          className="searchInputLat"
+          placeholder="Search Location Lat..."
+          type="text"
+        />
+        <input
+          id="searchInputLong"
+          className="searchInputLong"
+          placeholder="Search Location Long..."
           type="text"
         />
         <button
@@ -104,8 +110,12 @@ function App() {
           className="go"
           onClick={(e) => {
             e.preventDefault();
-            const searchBox = document.getElementById("searchInput");
-            alert(searchBox.value);
+            const searchBoxLat = document.getElementById("searchInputLat");
+            const searchBoxLong = document.getElementById("searchInputLong");
+            // alert(searchBox.value);
+            console.log(searchBoxLat);
+            console.log(searchBoxLong);
+            getStationList({searchBoxLat, searchBoxLong})
           }}
         >
           Go!
