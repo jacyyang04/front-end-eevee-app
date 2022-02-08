@@ -34,6 +34,7 @@
 
 .App-map {
   grid-area: map;
+  display: flex;
 }
 
 .App-footer {
@@ -66,10 +67,10 @@ label{
 }
 
 .searchInput{
-  color:rgb(89, 238, 39);
+  color:rgb(39, 152, 238);
   font-size: 50px;
-  width: 1600px;
-  height: 100px;
+  width: 1200px;
+  height: 65px;
   padding:10px;
   padding-left: 15px;
   border-radius: 25px;

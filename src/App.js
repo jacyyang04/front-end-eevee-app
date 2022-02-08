@@ -98,20 +98,17 @@ function App() {
           className="searchInput"
           placeholder="Search Location..."
           type="text"
-          name="searchbar"
         />
         <button
           id="goButton"
           className="go"
           onClick={(e) => {
             e.preventDefault();
-            var searchBox = document.getElementById("searchInput");
-            console.log(searchBox);
+            const searchBox = document.getElementById("searchInput");
             alert(searchBox.value);
           }}
         >
-          {" "}
-          Go!{" "}
+          Go!
         </button>
       </nav>
       <div className="App-map">
