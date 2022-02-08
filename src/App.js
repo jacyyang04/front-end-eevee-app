@@ -26,7 +26,6 @@ function App() {
     height: "100vh",
   });
 
-
   // holds selected station
   const [selectedStation, setSelectedStation] = useState(null);
 
@@ -52,11 +51,14 @@ function App() {
 
   // beginning of CRUDE routes
   // get station request
-  const getStationList = () => {
+  const getStationList = ({ viewport }) => {
     axios
       .get(
-        `https://api.openchargemap.io/v3/poi?key=${process.env.REACT_APP_OPENCHARGE}&distanceunit=15&maxresults=100&latitude=47.6062&longitude=-122.3321`
+        `https://api.openchargemap.io/v3/poi?key=${process.env.REACT_APP_OPENCHARGE}&distanceunit=15&maxresults=100&latitude=${viewport.latitude}&longitude=${viewport.longitude}`
       )
+      // .get(
+      //   `https://api.openchargemap.io/v3/poi?key=${process.env.REACT_APP_OPENCHARGE}&distanceunit=15&maxresults=100&latitude=47.6062&longitude=-122.3321`
+      // )
       // .get(
       //   `https://api.openchargemap.io/v3/referencedata?key=${process.env.REACT_APP_OPENCHARGE}&countryid=2`
       // )
@@ -82,7 +84,7 @@ function App() {
   };
 
   // console.log(stationData);
-  useEffect(getStationList, []);
+  useEffect(() => getStationList({ viewport }), []);
 
   return (
     <div className="App">
@@ -91,19 +93,33 @@ function App() {
       </header>
       <nav className="App-nav">
         <p>SHOW ME MY STATIONS!</p>
-        <input id="searchInput" className="searchInput" placeholder="Search Location..." type="text" name="searchbar" />
-        <button id="goButton" className="go" onClick={(e) => {
-                  e.preventDefault();
-                  var searchBox = document.getElementById("searchInput");
-                  console.log(searchBox);
-                  alert(searchBox.value);
-                }}> Go! </button>
+        <input
+          id="searchInput"
+          className="searchInput"
+          placeholder="Search Location..."
+          type="text"
+          name="searchbar"
+        />
+        <button
+          id="goButton"
+          className="go"
+          onClick={(e) => {
+            e.preventDefault();
+            var searchBox = document.getElementById("searchInput");
+            console.log(searchBox);
+            alert(searchBox.value);
+          }}
+        >
+          {" "}
+          Go!{" "}
+        </button>
       </nav>
       <div className="App-map">
         <ReactMapGL
           {...viewport}
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-          mapStyle="mapbox://styles/munizr/ckz947dv7000v15qnfa41z08z"
+          // mapStyle="mapbox://styles/munizr/ckz947dv7000v15qnfa41z08z"
+          mapStyle="mapbox://styles/mapbox/streets-v11"
           onViewportChange={(newViewport) => {
             setViewport(newViewport);
           }}
