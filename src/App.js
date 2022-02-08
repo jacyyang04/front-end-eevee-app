@@ -91,8 +91,13 @@ function App() {
       </header>
       <nav className="App-nav">
         <p>SHOW ME MY STATIONS!</p>
-        <input className="searchInput" placeholder="Search Location..." type="text" id="searchbar" name="searchbar" />
-        
+        <input id="searchInput" className="searchInput" placeholder="Search Location..." type="text" name="searchbar" />
+        <button id="goButton" className="go" onClick={(e) => {
+                  e.preventDefault();
+                  var searchBox = document.getElementById("searchInput");
+                  console.log(searchBox);
+                  alert(searchBox.value);
+                }}> Go! </button>
       </nav>
       <div className="App-map">
         <ReactMapGL
