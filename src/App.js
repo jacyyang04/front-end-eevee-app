@@ -115,13 +115,12 @@ function App() {
             // alert(searchBox.value);
             console.log(searchBoxLat);
             console.log(searchBoxLong);
-            getStationList({searchBoxLat, searchBoxLong});
-            setViewport(viewport => ({
+            getStationList({ searchBoxLat, searchBoxLong });
+            setViewport((viewport) => ({
               ...viewport,
-              latitude: searchBoxLat.value,
-              longitude: searchBoxLong.value,
+              latitude: parseFloat(searchBoxLat.value),
+              longitude: parseFloat(searchBoxLong.value),
             }));
-            
           }}
         >
           Go!
