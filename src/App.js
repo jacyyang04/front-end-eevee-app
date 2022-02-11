@@ -3,9 +3,9 @@ import axios from "axios";
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import ReactMapGL, { Marker, Popup, GeolocateControl } from "react-map-gl";
 import redpin from "./images/redpin.png";
-import Geocoder from 'react-map-gl-geocoder'
-import 'mapbox-gl/dist/mapbox-gl.css'
-import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
+import Geocoder from "react-map-gl-geocoder";
+import "mapbox-gl/dist/mapbox-gl.css";
+import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 // import { toHaveErrorMessage } from "@testing-library/jest-dom/dist/matchers";
 
 function App() {
@@ -21,6 +21,13 @@ function App() {
     width: "100vw",
     height: "100vh",
   });
+
+  const geocoderContainerRef = useRef();
+  const mapRef = useRef();
+  // const handleViewportChange = useCallback(
+  //   (newViewport) => setViewport(newViewport),
+  //   []
+  // );
 
   // holds selected station
   const [selectedStation, setSelectedStation] = useState(null);
@@ -44,11 +51,6 @@ function App() {
     right: 10,
     top: 10,
   };
-//geocoder
-  const geocoder = new MapboxGeocoder({
-    accessToken: process.env.REACT_APP_MAPBOX_TOKEN,
-    mapboxgl: mapboxgl
-  });
   // beginning of CRUDE routes
   // get station request
   const getStationList = ({ searchBoxLat, searchBoxLong }) => {
@@ -117,8 +119,9 @@ function App() {
           Go!
         </button>
       </nav>
-      <div className="App-map">
+      <div className="App-map" ref={geocoderContainerRef}>
         <ReactMapGL
+          ref={mapRef}
           {...viewport}
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
           // mapStyle="mapbox://styles/munizr/ckz947dv7000v15qnfa41z08z"
@@ -132,6 +135,15 @@ function App() {
             positionOptions={{ enableHighAccuracy: true }}
             trackUserLocation={true}
             auto
+          />
+          <Geocoder
+            mapRef={mapRef}
+            containerRef={geocoderContainerRef}
+            onViewportChange={(newViewport) => {
+              setViewport(newViewport);
+            }}
+            mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+            position="top-left"
           />
           {stationData.map((station) => (
             <Marker
