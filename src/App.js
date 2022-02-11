@@ -3,14 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ReactMapGL, { Marker, Popup, GeolocateControl } from "react-map-gl";
 import redpin from "./images/redpin.png";
-//import PushPinIcon from '@mui/icons-material/PushPin';
-
-// const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
-
-// const map = new mapboxgl.Map({
-//   container: "map-container",
-//   style: "mapbox://styles/mapbox/streets-v11",
-// });
+// import { toHaveErrorMessage } from "@testing-library/jest-dom/dist/matchers";
 
 function App() {
   // holds our station data
@@ -49,6 +42,21 @@ function App() {
     top: 10,
   };
 
+  navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
+    enableHighAccuracy: true,
+  });
+
+  function successLocation(position) {
+    // console.log(position);
+    setViewport((viewport) => ({
+      ...viewport,
+      latitude: parseFloat(position.coords.latitude),
+      longitude: parseFloat(position.coords.longitude),
+    }));
+  }
+
+  function errorLocation() {}
+
   // beginning of CRUDE routes
   // get station request
   const getStationList = ({ searchBoxLat, searchBoxLong }) => {
@@ -79,7 +87,7 @@ function App() {
         setStationData(newData);
       })
       .catch((error) => {
-        console.log(error.response.data);
+        console.log(error);
       });
   };
 
@@ -189,13 +197,3 @@ function App() {
 }
 
 export default App;
-
-navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
-  enableHighAccuracy: true,
-});
-
-function successLocation(position) {
-  console.log(position);
-}
-
-function errorLocation() {}
