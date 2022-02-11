@@ -3,6 +3,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ReactMapGL, { Marker, Popup, GeolocateControl } from "react-map-gl";
 import redpin from "./images/redpin.png";
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 // import { toHaveErrorMessage } from "@testing-library/jest-dom/dist/matchers";
 
 function App() {
@@ -41,7 +43,11 @@ function App() {
     right: 10,
     top: 10,
   };
-
+//geocoder
+  const geocoder = new MapboxGeocoder({
+    accessToken: process.env.REACT_APP_MAPBOX_TOKEN,
+    mapboxgl: mapboxgl
+  });
   // beginning of CRUDE routes
   // get station request
   const getStationList = ({ searchBoxLat, searchBoxLong }) => {
