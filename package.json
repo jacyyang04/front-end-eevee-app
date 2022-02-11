@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^4.7.4",
     "@mui/material": "^5.4.0",
     "@mui/styled-engine-sc": "^5.3.0",
     "@testing-library/jest-dom": "^5.14.1",
