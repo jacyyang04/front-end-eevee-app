@@ -42,21 +42,6 @@ function App() {
     top: 10,
   };
 
-  navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
-    enableHighAccuracy: true,
-  });
-
-  function successLocation(position) {
-    // console.log(position);
-    setViewport((viewport) => ({
-      ...viewport,
-      latitude: parseFloat(position.coords.latitude),
-      longitude: parseFloat(position.coords.longitude),
-    }));
-  }
-
-  function errorLocation() {}
-
   // beginning of CRUDE routes
   // get station request
   const getStationList = ({ searchBoxLat, searchBoxLong }) => {
