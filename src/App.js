@@ -53,10 +53,10 @@ function App() {
   };
   // beginning of CRUDE routes
   // get station request
-  const getStationList = ({ searchBoxLat, searchBoxLong }) => {
+  const getStationList = ({ newlat, newlong }) => {
     axios
       .get(
-        `https://api.openchargemap.io/v3/poi?key=${process.env.REACT_APP_OPENCHARGE}&distanceunit=15&maxresults=100&latitude=${searchBoxLat.value}&longitude=${searchBoxLong.value}`
+        `https://api.openchargemap.io/v3/poi?key=${process.env.REACT_APP_OPENCHARGE}&distanceunit=15&maxresults=100&latitude=${newlat}&longitude=${newlong}`
       )
       // go through the api and grab the coordinates for each charging ports
       .then((response) => {
@@ -141,6 +141,10 @@ function App() {
             containerRef={geocoderContainerRef}
             onViewportChange={(newViewport) => {
               setViewport(newViewport);
+              console.log(newViewport);
+              const newlat = newViewport.latitude;
+              const newlong= newViewport.longitude;
+              getStationList(newlat, newlong);
             }}
             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
             position="top-left"
