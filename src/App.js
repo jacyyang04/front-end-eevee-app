@@ -64,12 +64,6 @@ function App() {
       .get(
         `https://api.openchargemap.io/v3/poi?key=${process.env.REACT_APP_OPENCHARGE}&distanceunit=15&maxresults=100&latitude=${searchBoxLat.value}&longitude=${searchBoxLong.value}`
       )
-      // .get(
-      //   `https://api.openchargemap.io/v3/poi?key=${process.env.REACT_APP_OPENCHARGE}&distanceunit=15&maxresults=100&latitude=47.6062&longitude=-122.3321`
-      // )
-      // .get(
-      //   `https://api.openchargemap.io/v3/referencedata?key=${process.env.REACT_APP_OPENCHARGE}&countryid=2`
-      // )
       // go through the api and grab the coordinates for each charging ports
       .then((response) => {
         const newData = response.data.map((station) => {
@@ -90,9 +84,6 @@ function App() {
         console.log(error);
       });
   };
-
-  // console.log(stationData);
-  // useEffect(() => getStationList({searchInputLat, searchInputLong}), []);
 
   return (
     <div className="App">
@@ -197,3 +188,8 @@ function App() {
 }
 
 export default App;
+
+// Adds zoom in and out icon on map
+// const nav = new mapboxgl.NavigationControl(
+//   map.addControl(nav)
+// )
