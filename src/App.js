@@ -1,10 +1,11 @@
 import "./App.css";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import ReactMapGL, { Marker, Popup, GeolocateControl } from "react-map-gl";
 import redpin from "./images/redpin.png";
-import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
-import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import Geocoder from 'react-map-gl-geocoder'
+import 'mapbox-gl/dist/mapbox-gl.css'
+import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
 // import { toHaveErrorMessage } from "@testing-library/jest-dom/dist/matchers";
 
 function App() {
