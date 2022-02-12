@@ -86,7 +86,7 @@ function App() {
       </header>
       <nav className="App-nav">
         <p>SHOW ME MY STATIONS!</p>
-        <input
+        {/* <input
           id="searchInputLat"
           className="searchInputLat"
           placeholder="Search Location Lat..."
@@ -117,7 +117,7 @@ function App() {
           }}
         >
           Go!
-        </button>
+        </button> */}
       </nav>
       <div className="App-map" ref={geocoderContainerRef}>
         <ReactMapGL
@@ -142,9 +142,9 @@ function App() {
             onViewportChange={(newViewport) => {
               setViewport(newViewport);
               console.log(newViewport);
-              const newlat = newViewport.latitude;
-              const newlong= newViewport.longitude;
-              getStationList(newlat, newlong);
+              const newlat = parseFloat(newViewport.latitude);
+              const newlong = parseFloat(newViewport.longitude);
+              getStationList({ newlat, newlong });
             }}
             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
             position="top-left"
