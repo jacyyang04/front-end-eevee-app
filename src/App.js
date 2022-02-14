@@ -1,6 +1,6 @@
 import "./App.css";
 import axios from "axios";
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import ReactMapGL, { Marker, Popup, GeolocateControl } from "react-map-gl";
 import redpin from "./images/redpin.png";
 import Geocoder from "react-map-gl-geocoder";
