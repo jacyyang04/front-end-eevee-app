@@ -21,9 +21,9 @@ We believe tapping into our communities resources, sharing charging ports and bu
 1. Clone or fork this repository.
 2. Install dependencies by running: ```yarn start```
 3. Add an env file by running: ```touch .env```
-   1. Add the following keys as:
+   1. Add the following keys in the .env file as:
       1. Create an account and opencharge key from https://openchargemap.org/site/loginprovider/beginlogin. Add the opencharge key as: ```REACT_APP_OPEN_CHARGE=opencharge_key```
       2. Create an account and mapbox token from https://www.mapbox.com/. Add mapbox token as: ```REACT_APP_MAPBOX_TOKEN=mapboxtoken```
-4. To launch the application, run ```yarn start``` in your terminal.
+4. Launch the application by running ```yarn start``` in your terminal.
 
 *These environement variables should contain no spaces and if env tokens need to be updated, restart react.*
