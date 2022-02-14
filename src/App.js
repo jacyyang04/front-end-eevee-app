@@ -85,7 +85,7 @@ function App() {
           ref={mapRef}
           {...viewport}
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-          mapStyle="mapbox://styles/mapbox/streets-v11"
+          mapStyle="mapbox://styles/munizr/ckznawxzi000614na56hih5hj"
           onViewportChange={(newViewport) => {
             setViewport(newViewport);
           }}
