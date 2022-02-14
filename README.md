@@ -22,17 +22,7 @@ The eevee app is the start of a fun and engaging app to help owners normalize th
 2. Install dependencies by running: ```yarn start```
 3. Add an env file by running: ```touch .env```
    1. Add the following keys as:
-      1. REACT_APP_OPEN_CHARGE=insert opencharge key
-      2. REACT_APP_MAPBOX_TOKEN=mapboxtoken
+    ```REACT_APP_OPEN_CHARGE= opencharge_key```
+     ```REACT_APP_MAPBOX_TOKEN=mapboxtoken```
 
-
-Install axios with: yarn add axios
-Install npm mapbox package: npm install --save react-map-gl
-
-Add env file with: touch .env
-- add REACT_APP_OPEN_CHARGE=insert opencharge key
-- add REACT_APP_MAPBOX_TOKEN=mapboxtoken
-
-- these variables should contain no spaces and whenever env files are edited, restart react
-
-Install dependencies: yarn install
+- These environement variables should contain no spaces and whenever env files are edited, restart react.
