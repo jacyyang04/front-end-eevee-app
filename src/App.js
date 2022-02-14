@@ -6,7 +6,6 @@ import redpin from "./images/redpin.png";
 import Geocoder from "react-map-gl-geocoder";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
-// import { toHaveErrorMessage } from "@testing-library/jest-dom/dist/matchers";
 
 function App() {
   // holds our station data
@@ -24,15 +23,10 @@ function App() {
 
   const geocoderContainerRef = useRef();
   const mapRef = useRef();
-  // const handleViewportChange = useCallback(
-  //   (newViewport) => setViewport(newViewport),
-  //   []
-  // );
-
   // holds selected station
   const [selectedStation, setSelectedStation] = useState(null);
 
-  //on click esp closes pop
+  //on click escape key closes pop
   useEffect(() => {
     const listener = (e) => {
       if (e.key === "Escape") {
@@ -51,14 +45,13 @@ function App() {
     right: 10,
     top: 10,
   };
-  // beginning of CRUDE routes
   // get station request
   const getStationList = ({ newlat, newlong }) => {
     axios
       .get(
         `https://api.openchargemap.io/v3/poi?key=${process.env.REACT_APP_OPENCHARGE}&distanceunit=15&maxresults=100&latitude=${newlat}&longitude=${newlong}`
       )
-      // go through the api and grab the coordinates for each charging ports
+// go through the api and grab the coordinates for each charging ports
       .then((response) => {
         const newData = response.data.map((station) => {
           return {
@@ -78,7 +71,7 @@ function App() {
         console.log(error);
       });
   };
-
+  //renders the application 
   return (
     <div className="App">
       <header className="App-header">
@@ -86,45 +79,12 @@ function App() {
       </header>
       <nav className="App-nav">
         <p>SHOW ME MY STATIONS!</p>
-        {/* <input
-          id="searchInputLat"
-          className="searchInputLat"
-          placeholder="Search Location Lat..."
-          type="text"
-        />
-        <input
-          id="searchInputLong"
-          className="searchInputLong"
-          placeholder="Search Location Long..."
-          type="text"
-        />
-        <button
-          id="goButton"
-          className="go"
-          onClick={(e) => {
-            e.preventDefault();
-            const searchBoxLat = document.getElementById("searchInputLat");
-            const searchBoxLong = document.getElementById("searchInputLong");
-            // alert(searchBox.value);
-            console.log(searchBoxLat);
-            console.log(searchBoxLong);
-            getStationList({ searchBoxLat, searchBoxLong });
-            setViewport((viewport) => ({
-              ...viewport,
-              latitude: parseFloat(searchBoxLat.value),
-              longitude: parseFloat(searchBoxLong.value),
-            }));
-          }}
-        >
-          Go!
-        </button> */}
       </nav>
       <div className="App-map" ref={geocoderContainerRef}>
         <ReactMapGL
           ref={mapRef}
           {...viewport}
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-          // mapStyle="mapbox://styles/munizr/ckz947dv7000v15qnfa41z08z"
           mapStyle="mapbox://styles/mapbox/streets-v11"
           onViewportChange={(newViewport) => {
             setViewport(newViewport);
@@ -197,7 +157,7 @@ function App() {
 }
 
 export default App;
-
+//CONSIDERING ADDING THIS FEATURE 
 // Adds zoom in and out icon on map
 // const nav = new mapboxgl.NavigationControl(
 //   map.addControl(nav)
