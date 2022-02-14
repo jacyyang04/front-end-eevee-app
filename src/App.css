@@ -39,6 +39,8 @@
 
 .App-footer {
   grid-area: footer;
+  display: flex;
+  justify-content: space-around;
 }
 
 .map-container {

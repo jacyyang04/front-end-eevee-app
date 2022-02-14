@@ -189,7 +189,8 @@ function App() {
         </ReactMapGL>
       </div>
       <div className="App-footer">
-        <p>Add Linkedin</p>
+        <a href="https://www.linkedin.com/in/rebecamuniz/">Rebeca Muniz.</a>
+        <a href="https://www.linkedin.com/in/jacyyang04/">Jacy Yang.</a>
       </div>
     </div>
   );
