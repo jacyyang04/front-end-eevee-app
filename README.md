@@ -1,70 +1,38 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# eevee app
+This web app was created as a capstone project for Ada Developer's Academy.
 
-## Available Scripts
+We believe tapping into our communities resources, sharing charging ports and building a network of electric car vehicle owners will build a more sustainable future. For most electric car owners, the cheapest way to refuel is to plug in at home. At Seattle City Light, for example, residential rates range from less than 10 cents to more than 14 cents per kilowatt hour depending on how much power the customers use, and where they live. But home charging, public or private charging stations are not always accessible. Electric car owners need a guide that connects them instead to local homeowner ports nationwide.
 
-In the project directory, you can run:
+The eevee app is the start of a fun and engaging app to help owners normalize the experience of charging and owning an electric vehicle.
 
-### `yarn start`
+## Feature Set
+- Get current location of the device;
+- Retrieve location and charging stations based on user input.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Dependencies
+- react
+- react-map-gl
+- react-map-gl-geocoder
+- mapbox
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Environment Set-Up
 
-### `yarn test`
+1. Clone or fork this repository.
+2. Install dependencies by running: ```yarn start```
+3. Add an env file by running: ```touch .env```
+   1. Add the following keys as:
+      1. REACT_APP_OPEN_CHARGE=insert opencharge key
+      2. REACT_APP_MAPBOX_TOKEN=mapboxtoken
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+Install axios with: yarn add axios
+Install npm mapbox package: npm install --save react-map-gl
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Add env file with: touch .env
+- add REACT_APP_OPEN_CHARGE=insert opencharge key
+- add REACT_APP_MAPBOX_TOKEN=mapboxtoken
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- these variables should contain no spaces and whenever env files are edited, restart react
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Install dependencies: yarn install
