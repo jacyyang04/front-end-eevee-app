@@ -22,6 +22,6 @@ The eevee app is the start of a fun and engaging app to help owners normalize th
 2. Install dependencies by running: ```yarn start```
 3. Add an env file by running: ```touch .env```
    1. Add the following keys as:
-      1. Create an opencharge key from https://openchargemap.org/site/loginprovider/beginlogin. Add the opencharge key as: ```REACT_APP_OPEN_CHARGE= opencharge_key```
-      2. Create a mapbox token from https://www.mapbox.com/. Create an account and add mapbox token as: ```REACT_APP_MAPBOX_TOKEN=mapboxtoken```
+      1. Create an account and opencharge key from https://openchargemap.org/site/loginprovider/beginlogin. Add the opencharge key as: ```REACT_APP_OPEN_CHARGE= opencharge_key```
+      2. Create an account and mapbox token from https://www.mapbox.com/. Add mapbox token as: ```REACT_APP_MAPBOX_TOKEN=mapboxtoken```
 - These environement variables should contain no spaces and whenever env files are edited, restart react.
