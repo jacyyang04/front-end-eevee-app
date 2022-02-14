@@ -23,6 +23,10 @@
   font-size: calc(10px + 2vmin);
 }
 
+.App-header h1{
+  margin-bottom: 0;
+}
+
 .App-nav {
   grid-area: nav;
   display: flex;

@@ -7,7 +7,7 @@ The eevee app is the start of a fun and engaging app to help owners normalize th
 We believe tapping into our communities resources, sharing charging ports and building a network of electric car vehicle owners will build a more sustainable future. For most electric car owners, the cheapest way to refuel is to plug in at home. At Seattle City Light, for example, residential rates range from less than 10 cents to more than 14 cents per kilowatt hour depending on how much power the customers use, and where they live. But home charging, public or private charging stations are not always accessible. Electric car owners need a guide that connects them instead to local homeowner ports nationwide.
 
 ## Feature Set
-- Get current location of the device;
+- Get current location of the device.
 - Retrieve location and charging stations based on user input.
 
 ## Dependencies
