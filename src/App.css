@@ -39,6 +39,19 @@
 .App-map {
   grid-area: map;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.App-map .mapboxgl-ctrl-geocoder--input {
+  width: 500px
+  /* padding: 10px;
+  border-radius: 25px;
+  margin-bottom: 15px; */
+}
+
+.mapboxgl-ctrl-geocoder {
+  box-shadow: 5-00;
 }
 
 .App-footer {
@@ -72,18 +85,8 @@ label{
   margin: 3px;
 }
 
-.searchInputLat{
-  color:rgb(39, 152, 238);
-  font-size: 50px;
-  width: 1200px;
-  height: 65px;
-  padding:10px;
-  padding-left: 15px;
-  border-radius: 25px;
-  margin-bottom: 15px;
-}
 
-.searchInputLong{
+#searchInputLong{
   color:rgb(39, 152, 238);
   font-size: 50px;
   width: 1200px;

@@ -51,7 +51,7 @@ function App() {
       .get(
         `https://api.openchargemap.io/v3/poi?key=${process.env.REACT_APP_OPENCHARGE}&distanceunit=15&maxresults=100&latitude=${newlat}&longitude=${newlong}`
       )
-// go through the api and grab the coordinates for each charging ports
+      // go through the api and grab the coordinates for each charging ports
       .then((response) => {
         const newData = response.data.map((station) => {
           return {
@@ -71,7 +71,7 @@ function App() {
         console.log(error);
       });
   };
-  //renders the application 
+  //renders the application
   return (
     <div className="App">
       <header className="App-header">
@@ -80,7 +80,11 @@ function App() {
       <nav className="App-nav">
         <p>SHOW ME MY STATIONS!</p>
       </nav>
-      <div className="App-map" ref={geocoderContainerRef}>
+      <div className="App-map">
+        <div
+          ref={geocoderContainerRef}
+          className="mapboxgl-ctrl-geocoder--input"
+        />
         <ReactMapGL
           ref={mapRef}
           {...viewport}
@@ -101,7 +105,6 @@ function App() {
             containerRef={geocoderContainerRef}
             onViewportChange={(newViewport) => {
               setViewport(newViewport);
-              console.log(newViewport);
               const newlat = parseFloat(newViewport.latitude);
               const newlong = parseFloat(newViewport.longitude);
               getStationList({ newlat, newlong });
@@ -157,7 +160,7 @@ function App() {
 }
 
 export default App;
-//CONSIDERING ADDING THIS FEATURE 
+//CONSIDERING ADDING THIS FEATURE
 // Adds zoom in and out icon on map
 // const nav = new mapboxgl.NavigationControl(
 //   map.addControl(nav)
