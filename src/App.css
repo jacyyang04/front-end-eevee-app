@@ -27,7 +27,7 @@
     background-color: aliceblue;
 }
 .App-header {
-  
+
   grid-area: header;
   min-height: 10vh;
   display: flex;
@@ -66,9 +66,9 @@
   margin-bottom: 15px; */
 }
 
-.mapboxgl-ctrl-geocoder {
-  box-shadow: 5-00;
-}
+/* .mapboxgl-ctrl-geocoder {
+  box-shadow: 500px;
+} */
 
 .App-footer {
   grid-area: footer;
