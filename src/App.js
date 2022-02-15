@@ -78,13 +78,12 @@ function App() {
         <h1>eevee app</h1>
       </header>
       <nav className="App-nav">
-        <p>SHOW ME MY <i> STATIONS</i>!</p>
+        <p>
+          SHOW ME MY <i> STATIONS</i>!
+        </p>
       </nav>
       <div className="App-map">
-        <div
-          ref={geocoderContainerRef}
-          className="mapboxgl-ctrl-geocoder--input"
-        />
+        <div ref={geocoderContainerRef} className="mapboxgl-ctrl-geocoder" />
         <ReactMapGL
           ref={mapRef}
           {...viewport}

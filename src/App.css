@@ -59,15 +59,16 @@
   justify-content: center;
 }
 
-.App-map .mapboxgl-ctrl-geocoder--input {
-  width: 500px
-  /* padding: 10px;
+.App-map .mapboxgl-ctrl-geocoder {
+  font-size: large;
+  line-height: 70px;
+  width: 400px;
   border-radius: 25px;
-  margin-bottom: 15px; */
+  justify-content: center;
 }
 
-/* .mapboxgl-ctrl-geocoder {
-  box-shadow: 500px;
+/* .App-map .mapboxgl-ctrl-geocoder--input {
+  width: 500px
 } */
 
 .App-footer {
