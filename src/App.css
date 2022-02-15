@@ -1,8 +1,7 @@
-.App {
+/* .App {
+  width: 90%;
+  margin: 0 auto;
   text-align: center;
-}
-
-.App {
   display: grid;
   grid-template-columns: 25px 3fr 25px;
   grid-template-rows: auto;
@@ -11,9 +10,24 @@
     ". nav ."
     ". map ."
     ". footer .";
+  background-color: aliceblue;
+} */
+.App {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 5px 3fr 5px;
+  grid-template-rows: auto;
+  grid-template-areas:
+    ". header ."
+    ". nav ."
+    ". map ."
+    ". footer .";
+    background-color: aliceblue;
 }
-
 .App-header {
+  
   grid-area: header;
   min-height: 10vh;
   display: flex;
@@ -22,7 +36,9 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
 }
-
+.App-nav i {
+ color: pink;
+}
 .App-header h1{
   margin-bottom: 0;
 }

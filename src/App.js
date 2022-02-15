@@ -78,7 +78,7 @@ function App() {
         <h1>eevee app</h1>
       </header>
       <nav className="App-nav">
-        <p>SHOW ME MY STATIONS!</p>
+        <p>SHOW ME MY <i> STATIONS</i>!</p>
       </nav>
       <div className="App-map" ref={geocoderContainerRef}>
         <ReactMapGL
