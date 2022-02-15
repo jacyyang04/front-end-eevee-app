@@ -83,7 +83,7 @@ function App() {
         </p>
       </nav>
       <div className="App-map">
-        <div ref={geocoderContainerRef} className="mapboxgl-ctrl-geocoder" />
+        <div ref={geocoderContainerRef} />
         <ReactMapGL
           ref={mapRef}
           {...viewport}
