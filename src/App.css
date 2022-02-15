@@ -17,14 +17,14 @@
   margin: 0 auto;
   text-align: center;
   display: grid;
-  grid-template-columns: 5px 3fr 5px;
+  grid-template-columns: 3fr;
   grid-template-rows: auto;
   grid-template-areas:
-    ". header ."
-    ". nav ."
-    ". map ."
-    ". footer .";
-    background-color: aliceblue;
+    "header"
+    "nav"
+    "map"
+    "footer";
+  background-color: aliceblue;
 }
 .App-header {
 
@@ -62,8 +62,9 @@
 .App-map .mapboxgl-ctrl-geocoder {
   font-size: large;
   line-height: 70px;
-  width: 400px;
+  /* width: 400px; */
   border-radius: 25px;
+  min-width: 100%;
 }
 
 /* .App-map .mapboxgl-ctrl-geocoder--input {
