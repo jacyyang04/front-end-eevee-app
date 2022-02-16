@@ -79,7 +79,7 @@ function App() {
       </header>
       <nav className="App-nav">
         <p>
-          SHOW ME MY <i> STATIONS</i>!
+          SHOW ME MY <i> ELECTRIC VEHICLE STATIONS</i>!
         </p>
       </nav>
       <div className="App-map">
@@ -151,7 +151,7 @@ function App() {
         </ReactMapGL>
       </div>
       <div className="App-footer">
-        <a href="https://www.linkedin.com/in/rebecamuniz/">Rebeca Muniz.</a>
+        <a href="https://www.linkedin.com/in/rebecamuniz/">Rebeca Muniz </a>  &  
         <a href="https://www.linkedin.com/in/jacyyang04/">Jacy Yang.</a>
       </div>
     </div>
@@ -159,8 +159,4 @@ function App() {
 }
 
 export default App;
-//CONSIDERING ADDING THIS FEATURE
-// Adds zoom in and out icon on map
-// const nav = new mapboxgl.NavigationControl(
-//   map.addControl(nav)
-// )
+

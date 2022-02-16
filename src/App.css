@@ -25,54 +25,54 @@
     "nav"
     "map"
     "footer";
-  background-color: aliceblue;
 }
 .App-header {
-
   grid-area: header;
   min-height: 10vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
+  justify-content: left;
   font-size: calc(10px + 2vmin);
 }
 .App-nav i {
-  color: pink;
+  
+  color: rgb(245, 153, 169);
+  background-color: rgb(246, 238, 227);
 }
 .App-header h1{
   margin-bottom: 0;
+  text-align: left;
+  
 }
 
 .App-nav {
+  width: 90%;
   grid-area: nav;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  text-align:left;
   justify-content: center;
   font-size: calc(10px + 2vmin);
 }
 
 .App-map {
-  width: 90%;
+  width: 80%;
   grid-area: map;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
-
-
 .App-footer {
   grid-area: footer;
   display: flex;
-  justify-content: space-around;
+  justify-content: left;
+  margin-top: 1%;
+  color: rgb(245, 153, 169);
+  background-color: rgb(246, 238, 227);
+  height: 20px;
+  font-size: large;
 }
-
-.map-container {
-  display: flex;
-}
-
 .card{
   width: 250px;
   height: 150px;
@@ -92,16 +92,4 @@ label{
   font-size: x-large;
   border-bottom: 1px solid rgb(88, 64, 224);
   margin: 3px;
-}
-
-
-#searchInputLong{
-  color:rgb(39, 152, 238);
-  font-size: 50px;
-  width: 1200px;
-  height: 65px;
-  padding:10px;
-  padding-left: 15px;
-  border-radius: 25px;
-  margin-bottom: 15px;
 }
